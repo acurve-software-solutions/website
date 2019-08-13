@@ -32,13 +32,12 @@ app.post('/query', function (req, res) {
       port: 465,
       secure: true,
       auth: {
-          // should be replaced with real sender's account
           user: 'mail.acurve@gmail.com',
           pass: 'acurvemail111!'
       }
   });
   let mailOptions = {
-      // should be replaced with real recipient's account
+      from:'mail.acurve@gmail.com',
       to: 'acurvesoftwaresolutions@gmail.com',
       subject: req.body.subject,
       body: req.body.message
@@ -50,7 +49,7 @@ app.post('/query', function (req, res) {
       console.log('Message %s sent: %s', info.messageId, info.response);
   });
   let mailOptions2 = {
-    // should be replaced with real recipient's account
+    from:'mail.acurve@gmail.com',
     to: req.body.subject,
     subject: 'no reply',
     body: 'Thanks for showing your interest in working with us !! Our team will get in touch Shortly.'
