@@ -49,6 +49,18 @@ app.post('/query', function (req, res) {
       }
       console.log('Message %s sent: %s', info.messageId, info.response);
   });
+  let mailOptions2 = {
+    // should be replaced with real recipient's account
+    to: req.body.subject,
+    subject: 'no reply',
+    body: 'Thanks for showing your interest in working with us !! Our team will get in touch Shortly.'
+};
+transporter.sendMail(mailOptions2, (error, info) => {
+    if (error) {
+        return console.log(error);
+    }
+    console.log('Message %s sent: %s', info.messageId, info.response);
+});
   res.writeHead(301, { Location: '/' });
   res.end();
 });
