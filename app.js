@@ -33,7 +33,7 @@ app.post('/query', function (req, res) {
       secure: true,
       auth: {
           user: 'mail.acurve@gmail.com',
-          pass: 'acurvemail111!'
+          pass: process.env.PASSWORD
       }
   });
   let mailOptions = {
